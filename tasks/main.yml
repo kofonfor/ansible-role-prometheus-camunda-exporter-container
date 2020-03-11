@@ -1,0 +1,12 @@
+- name: start a Camunda Prom exporter container
+  docker_container:
+    name: camunda-exporter
+    image: kofonfor/prometheus-camunda-exporter
+    state: started
+    restart_policy: always
+    ports:
+      - "{{ prometheus_camunda_exporter_container_host_address }}:{{ prometheus_camunda_exporter_port }}:8080"
+    env:
+      DB_URL: "{{ prometheus_camunda_exporter_db_url }}"
+      DB_USERNAME: "{{ prometheus_camunda_exporter_db_username }}"
+      DB_PASSWORD: "{{ prometheus_camunda_exporter_db_password }}"

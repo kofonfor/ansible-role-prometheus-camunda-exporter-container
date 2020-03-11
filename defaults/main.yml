@@ -1,0 +1,2 @@
+prometheus_camunda_exporter_container_host_address: 0.0.0.0
+prometheus_camunda_exporter_port: 9101
